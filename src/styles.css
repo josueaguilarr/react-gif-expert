@@ -1,63 +1,161 @@
+:root {
+  /* General */
+  --main-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --main-margin-text: 20px;
+  --main-padding-body: 40px;
+  --main-transition-time: 0.4s;
+  
+  /* Colors */
+  --main-color-background: #e6e4d5;
+  --main-color-black: #0a0a0a;
+  --main-color-white: #ffffff;
+  --main-color-yellow: #fbff00;
+  
+  /* Fonts */
+  --main-weight-900: 900;
+  --main-weight-700: 700;
+  --main-weight-600: 600;
+}
+
+/* Styles */
 * {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(234, 234, 234);
-  }
-  
-  body {
-    padding: 60px;
-  }
-  
-  input {
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid rgb(97, 32, 158);
-    color: black;
-    font-size: 1.2rem;
-    outline: none;
-    padding: 10px 15px;
-    width: 100%;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 3rem;
-    margin-bottom: 5px;
-  }
-  
-  .card-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card {
-    align-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.03);
-    display: flex;
-    flex-direction: column;
-    height: 0%;  
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    overflow: hidden;
-  }
-  
-  .card p {
-    background-color: white;
-    flex: 1;
-    font-size: 1.5rem;
-    margin-top: 5px;
-    padding: 5px 20px 0px 20px;
-    text-align: center;
-  }
-  
-  .card img {
-    width: 100%;
-  }
+  background-color: var(--main-color-background);
+  box-sizing: border-box;
+  font-family: var(--main-font-family);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: var(--main-padding-body);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: var(--main-weight-900);
+  letter-spacing: 3px;
+  margin: var(--main-margin-text) auto;
+  text-align: center;
+  text-shadow: -1px -1px 0px var(--main-color-white),
+    3px 3px 0px var(--main-color-white), 6px 6px 0px var(--main-color-white);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin: var(--main-margin-text);
+  text-shadow: -1px -1px 0px var(--main-color-white),
+    3px 3px 0px var(--main-color-white), 6px 6px 0px var(--main-color-white);
+}
+
+/* Form */
+.search__form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search__bar {
+  background-color: var(--main-color-white);
+  border-radius: 30px;
+  border: 1px solid var(--main-color-black);
+  color: var(--main-color-black);
+  font-size: 1rem;
+  font-weight: var(--main-weight-600);
+  outline: none;
+  padding: 10px 15px;
+  width: 60%;
+}
+
+.search__btn {
+  background-color: var(--main-color-white);
+  border-radius: 30px;
+  border: 1px solid var(--main-color-black);
+  color: var(--main-color-black);
+  font-size: 15px;
+  font-weight: var(--main-weight-600);
+  margin-left: 5px;
+  padding: 10px;
+  width: 15%;
+}
+
+.fa-search {
+  background: none;
+}
+
+/* Cards */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0.5rem 3rem;
+}
+
+.card {
+  cursor: pointer;
+  flex: 1 1 auto;
+  height: 250px;
+  list-style: none;
+  position: relative;
+}
+
+.card img {
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.card .card__description {
+  background: none;
+  font-size: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Footer */
+.__footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.__footer a {
+  color: var(--main-color-black);
+  font-size: 1.5rem;
+  font-weight: var(--main-weight-700);
+  text-decoration: overline;
+}
+
+/* Selectors */
+.search__bar:focus {
+  border: 1px solid var(--main-color-yellow);
+  transition: var(--main-transition-time);
+}
+
+.search__btn:hover {
+  border: 1px solid var(--main-color-yellow);
+  transition: var(--main-transition-time);
+}
+
+.card:hover .card__description p {
+  background: var(--main-color-black);
+  border-radius: 10px;
+  color: var(--main-color-white);
+  font-size: 1.5rem;
+  font-weight: var(--main-weight-700);
+  opacity: 0.5;
+  padding: 5px;
+  text-align: center;
+  transition: var(--main-transition-time);
+}
