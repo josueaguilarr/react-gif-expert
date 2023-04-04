@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import PropTypes from 'prop-types'
 
 export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState("");
@@ -17,7 +18,7 @@ export const AddCategory = ({ onNewCategory }) => {
   };
 
   return (
-    <form className="search__form" onSubmit={onSubmit}>
+    <form className="search__form" onSubmit={onSubmit} aria-label="form">
       <input
         className="search__bar"
         type="text"
@@ -31,3 +32,8 @@ export const AddCategory = ({ onNewCategory }) => {
     </form>
   );
 };
+
+
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired
+}
